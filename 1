@@ -1,0 +1,37 @@
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+// These are all the declarations used to calculate the windchill as well as what is used to store the
+// users input
+int windchill(double wind, double temp);
+double w;
+int windchill(double v, double t);
+double wind, temp;
+
+int main()
+{
+		//This part of the program asks the user to input the wind speed in MPH as well as to input the
+		// temperature in fahrenheit. The program will restate the current temperature for the user. After
+		// that line is printed the windchill factor is calculated and then shown to the user on the very
+		// last line of output.
+		double wind, temp;
+		cout << "Enter the wind speed in miles per hour: ";
+		cin >> wind;
+		cout << "Enter the temperature in fahrenheit: ";
+		cin >> temp;
+		cout << "Current temperature: " << temp << "F" << endl;
+		cout << "Windchill factor " << setprecision(4) << fixed << windchill(wind, temp) << endl;
+		system("pause");
+}
+// This is the part of the program that calculates the windchill factor and the output is shown
+//above to the user.
+int windchill(double v, double t)
+{
+		double w;
+		w = 35.74 + 0.6215 * t - 35.75 * std::pow(v, 0.16);
+		return w;
+		return 0;
+}
